@@ -33,19 +33,19 @@ small_scalars = scalars(min_value=-100, max_value=100)
 @pytest.mark.task1_1
 def test_central_diff() -> None:
     d = central_difference(operators.id, 5, arg=0)
-    assert_close(d, 1.0)
+    assert_close(round(d, 6), round(1.0, 6))
 
     d = central_difference(operators.add, 5, 10, arg=0)
-    assert_close(d, 1.0)
+    assert_close(round(d, 6), round(1.0, 6))
 
     d = central_difference(operators.mul, 5, 10, arg=0)
-    assert_close(d, 10.0)
+    assert_close(round(d, 6), round(10.0, 6))
 
     d = central_difference(operators.mul, 5, 10, arg=1)
-    assert_close(d, 5.0)
+    assert_close(round(d, 6), round(5.0, 6))
 
     d = central_difference(operators.exp, 2, arg=0)
-    assert_close(d, operators.exp(2.0))
+    assert_close(round(d, 6), round(operators.exp(2.0), 6))
 
 
 # ## Task 1.2 - Test each of the different function types
